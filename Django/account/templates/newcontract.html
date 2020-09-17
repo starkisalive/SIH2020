@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/easion.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="static/js/chart-js-config.js"></script>
+    <title>
+        insert new data 
+    </title>
+    <style>
+    *{
+    box-sizing: border-box;
+    }
+
+    input[type=text], select, textarea {
+    width: 70%;
+    margin-top: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    }
+
+    input[type=submit] {
+    background-color: #F68619;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    }
+    .design{
+        margin:auto;
+        margin-top:50px;
+        width: 50%;
+        height: 100%;
+        border:1px solid #F68619;
+    }
+    </style>
+</head>
+<body>
+    </hr>
+    <div class="design">
+    <h1 style="text-align:center">Contractor Details</h1>
+    <form method="POST" style="text-align:center">
+        {% csrf_token %}
+        <input type="text" placeholder="Enter name" name="cname" required/><br/>
+        <input type="text" placeholder="Enter EmailId" name="cemail" required/><br/>
+        <input type="text" placeholder="Enter ContactNo" name="cphn" required/><br/>
+        <input type="text" placeholder="Enter Location" name="cloc" required/><br/>
+        <input type="submit" value="insert data"/>
+    </form>
+    </div>
+    <hr/>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AfterTrackC">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginHorizontal="100dp"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="30dp"
+            android:padding="5dp"
+            android:src="@drawable/picplaceholder" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_marginTop="30dp"
+            android:hint="Name"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+
+
+        <Button
+            android:id="@+id/accept"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/text"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/notintrest"
+            android:padding="10dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/text"
+            android:background="@drawable/intrest"
+            android:id="@+id/reject"
+            android:textStyle="bold"
+            android:layout_marginTop="3dp"
+            android:padding="10dp"
+            android:layout_marginLeft="220dp"/>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

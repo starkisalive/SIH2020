@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signup"
+    android:background="@drawable/signupuser"
+    >
+
+
+
+
+    <Button
+        android:layout_width="210dp"
+        android:layout_height="100dp"
+        android:background="@drawable/signupbtn"
+        android:layout_marginTop="550dp"
+        android:id="@+id/out"
+        android:layout_marginLeft="5dp"/>
+
+    <Button
+        android:layout_width="210dp"
+        android:id="@+id/in"
+        android:layout_height="100dp"
+        android:layout_marginTop="550dp"
+        android:background="@drawable/loginbtn"
+        android:layout_toEndOf="@+id/out"/>
+
+
+
+    <EditText
+        android:layout_width="350dp"
+        android:id="@+id/username"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="290dp"/>
+
+    <EditText
+        android:layout_width="350dp"
+        android:id="@+id/pass"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="44dp"/>
+    <EditText
+        android:layout_width="350dp"
+        android:id="@+id/email"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pass"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="45dp"/>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logowhite"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:id="@+id/loginwith"
+        android:layout_marginTop="650dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/loginwith"/>
+
+
+
+
+
+
+
+
+</RelativeLayout>

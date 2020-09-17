@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/navhome"
+            android:title="Home"
+            android:icon="@drawable/nav_home"/>
+        <item
+            android:id="@+id/track"
+            android:title="Track"
+            android:icon="@drawable/nav_track"/>
+        <item
+            android:id="@+id/pothole"
+            android:title="Pothole Near Me"
+            android:icon="@drawable/nav_track"/>
+
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Profile">
+
+            <menu>
+                <item
+                    android:id="@+id/reward"
+                    android:title="Rewards"
+                    android:icon="@drawable/nav_reward"/>
+                <item
+                    android:id="@+id/logout"
+                    android:title="Logout"
+                    android:icon="@drawable/nav_logout"/>
+
+            </menu>
+
+        </item>
+
+    </group>
+
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Communication">
+
+            <menu>
+
+                <item
+                    android:id="@+id/share"
+                    android:title="Share"
+                    android:icon="@drawable/nav_share"/>
+                <item
+                    android:id="@+id/about"
+                    android:title="About Us"
+                    android:icon="@drawable/nav_contact"/>
+            </menu>
+
+        </item>
+
+    </group>
+</menu>

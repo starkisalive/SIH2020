@@ -1,0 +1,165 @@
+<!DOCTYPE html >
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Using MySQL and PHP with Google Maps</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 20;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+<html>
+  <body>
+    <div id="map"></div>
+
+    <script>
+      
+      var customLabel = {
+        major: {
+          //label: 'Ma',
+          icon: {
+                url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+                    }
+        },
+        moderate: {
+          //label: 'Mo',
+          icon: {
+                url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+                    }
+        },
+        minor: {
+          //label: 'Mi',
+          icon: {
+                url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                    }
+
+        },
+        none: {
+          //label: 'N',
+          icon: {
+                url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                    }
+        }
+
+      };
+
+        function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: new google.maps.LatLng(20.2961, 85.8245),
+          zoom: 13
+        });
+        var infoWindow = new google.maps.InfoWindow;
+
+          // Change this depending on the name of your PHP or XML file
+          downloadUrl('connection2.php', function(data) {
+            var xml = data.responseXML;
+            var markers = xml.documentElement.getElementsByTagName('marker');
+            Array.prototype.forEach.call(markers, function(markerElem) {
+              var id = markerElem.getAttribute('id');
+              var date = markerElem.getAttribute('date');
+              var user = markerElem.getAttribute('user');
+              var land = markerElem.getAttribute('land');
+              var sugg = markerElem.getAttribute('sugg');
+              var img = markerElem.getAttribute('img');
+              var cont = markerElem.getAttribute('cont');
+              var status = markerElem.getAttribute('status');
+
+              var lod = markerElem.getAttribute('lod');
+
+              var point = new google.maps.LatLng(
+                  parseFloat(markerElem.getAttribute('lat')),
+                  parseFloat(markerElem.getAttribute('lng')));
+
+              var infowincontent = document.createElement('div');
+              var strong = document.createElement('strong');
+              strong.textContent = id;
+              infowincontent.appendChild(strong);
+              infowincontent.appendChild(document.createElement('br'));
+
+              var text0 = document.createElement('text0');
+              text0.textContent = date
+              infowincontent.appendChild(text0);
+              var text00 = document.createElement('text00');
+              text00.textContent = " | "
+              infowincontent.appendChild(text00);
+              var text = document.createElement('text');
+              text.textContent = user
+              infowincontent.appendChild(text);
+              var text1 = document.createElement('text1');
+              text1.textContent = " | "
+              infowincontent.appendChild(text1);
+              var text2 = document.createElement('text2');
+              text2.textContent = land
+              infowincontent.appendChild(text2);
+              var text3 = document.createElement('text3');
+              text3.textContent = " | "
+              infowincontent.appendChild(text3);
+              var text4 = document.createElement('text4');
+              text4.textContent = sugg
+              infowincontent.appendChild(text4);
+              var text5 = document.createElement('text5');
+              text5.textContent = " | "
+              infowincontent.appendChild(text5);
+              var text6 = document.createElement('text6');
+              text6.textContent = cont
+              infowincontent.appendChild(text6);
+              var text7 = document.createElement('text7');
+              text7.textContent = " | "
+              infowincontent.appendChild(text7);
+              var text8 = document.createElement('text8');
+              text8.textContent = status
+              infowincontent.appendChild(text8);
+              var text9 = document.createElement('text9');
+              text9.textContent = " | "
+              infowincontent.appendChild(text9);
+              var icon = customLabel[lod] || {};
+              var marker = new google.maps.Marker({
+                map: map,
+                position: point,
+                label: icon.label,
+                icon : icon.icon 
+              });
+              marker.addListener('click', function() {
+                infoWindow.setContent(infowincontent);
+                infoWindow.open(map, marker);
+              });
+            });
+          });
+        }
+
+
+
+      function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+          }
+        };
+
+        request.open('GET', url, true);
+        request.send(null);
+      }
+
+      function doNothing() {}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0UaPrxGWkv8hpTErwJE0eLmUGJMnHBZI&callback=initMap">
+    </script>
+  </body>
+</html>
