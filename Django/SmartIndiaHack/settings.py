@@ -146,8 +146,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 #EMAIL_USE_SSL = False
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'shreyashbehera1999@gmail.com'
-EMAIL_HOST_PASSWORD = 'Shreyash@08;919583475666'
+EMAIL_HOST_USER = 'user@mail.com'
+EMAIL_HOST_PASSWORD = 'userpassword'
 PASSWORD_RESET_TIMEOUT_DAYS = 2
 
 
